@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 /// A live bar waveform driven by a level callback returning dBFS (≈ -160…0).
 struct WaveformView: View {
