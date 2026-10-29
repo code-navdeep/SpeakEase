@@ -108,7 +108,7 @@ final class SpeechTranscriberService: TranscriptionService {
         let (stream, continuation) = AsyncStream<AudioBuffer>.makeStream()
         let reader = Task {
             defer { continuation.finish() }
-            while true {
+            while file.framePosition < file.length {
                 guard let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: frameCount) else { break }
                 try file.read(into: buffer)
                 if buffer.frameLength == 0 { break }
