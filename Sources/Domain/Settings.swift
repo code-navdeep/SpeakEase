@@ -118,7 +118,7 @@ struct AppSettings: Codable, Equatable {
     var vocabulary: [VocabularyRule]
 
     static let `default` = AppSettings(
-        localeIdentifier: Locale.current.identifier(.bcp47),
+        localeIdentifier: "en-US",
         recordingMode: .toggle,
         hotkey: .default,
         hotkeyEnabled: true,
