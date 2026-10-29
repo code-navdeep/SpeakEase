@@ -99,7 +99,7 @@ private struct GeneralSettings: View {
             launchAtLogin = SMAppService.mainApp.status == .enabled
             let supported = await SpeechTranscriber.supportedLocales
             locales = supported
-                .map { ($0.identifier, $0.localizedString(forIdentifier: $0.identifier) ?? $0.identifier) }
+                .map { ($0.identifier(.bcp47), $0.localizedString(forIdentifier: $0.identifier) ?? $0.identifier) }
                 .sorted { $0.name < $1.name }
             if locales.isEmpty {
                 let current = Locale.current.identifier(.bcp47)
